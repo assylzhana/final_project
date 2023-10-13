@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBoost</title>
+    <style>
+        .carousel-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            border-color: #f15b2a;
+        }
+
+        .carousel-slide {
+            display: none;
+            padding: 20px;
+            border: 1px solid #f15b2a;
+            background-color: white;
+            width: 550px;
+            height: 60px;
+        }
+
+
+        .carousel-arrows {
+            font-size: 24px;
+            cursor: pointer;
+            color: #f15b2a;
+            border: 2px solid white;
+            border-radius: 50%;
+            padding: 10px 16px;
+            margin: 0 10px;
+            background-color: transparent;
+
+        }
+        body, h1, h2, h3, p, ul, li, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .nav-links {
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .hero {
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 0;
+            color: #fff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #f15b2a;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #d0421b;
+        }
+
+        .about-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .services-section {
+            background-color: #f8f8f8;
+            padding: 60px 0;
+        }
+
+        .service {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .service h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .portfolio-item {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-item img {
+            max-width: 100%;
+        }
+
+        .contact-section {
+            background-color: #f8f8f8;
+            padding: 60px 0;
+        }
+
+        .contact-section p {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            background-color: #f15b2a;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #d0421b;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .social-icon.instagram::before {
+            content: "\f16d";
+        }
+
+        .social-icon.facebook::before {
+            content: "\f09a";
+        }
+
+        .social-icon.linkedin::before {
+            content: "\f08c";
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #login, #signup, #reset-password {
+            display: none;
+        }
+
+        #login.is-selected, #signup.is-selected, #reset-password.is-selected {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="container">
+            <h1 class="logo">BrainBoost</h1>
+            <br>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to BrainBoost</h1>
+            <br><br>
+            <p style="text-align: center">
+                Join BrainBoost for discovery, learning,
+            </p>
+            <p style="text-align: center">
+                and brain-boosting fun. Impress with trivia
+            </p>
+            <p style="text-align: center">
+                knowledge or enjoy quizzes. Your go-to for
+            </p>
+            <p style="text-align: center">
+                mental stimulation and entertainment.
+            </p>
+            <br>
+            <br>
+            <br>
+            <a href="/login" class="cta-button">Get Started</a>
+        </div>
+    </div>
+</header>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <h2 style="text-align: center;font-family: 'Arial', sans-serif; color: #333;">About Us</h2>
+        <br>
+        <p style="text-align: center;font-family: 'Arial', sans-serif; color: #666;">Welcome to BrainBoost, the ultimate destination for mind-stimulating quizzes and trivia challenges! At BrainBoost, we believe in the power of knowledge and the thrill of testing your intellectual prowess. Whether you're a trivia enthusiast, a curious learner, or just looking to have fun while exercising your brain, BrainBoost has something for everyone.</p>
+        <br><br>
+        <p style="text-align: center;font-family: 'Arial', sans-serif; color: #666;"><strong>What We Offer:</strong></p>
+        <br>
+        <div class="carousel-container">
+            <div class="carousel-slide"  style="margin: 0 auto" >
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>User-Friendly Interface:</strong> Our user-friendly platform makes it easy to navigate, select quizzes, and track your progress. Whether you're on your computer or mobile device, BrainBoost is accessible anytime, anywhere.</p>
+            </div>
+            <div class="carousel-slide">
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>Diverse Quiz Categories:</strong> Explore a wide range of quiz categories, from science and history to pop culture and sports. Choose your favorite topics or challenge yourself to discover new interests.</p>
+            </div>
+            <div class="carousel-slide">
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>Engaging Trivia Challenges:</strong> Our quizzes are designed to be both entertaining and educational. Test your knowledge and learn fascinating facts along the way.</p>
+            </div>
+
+            <div class="carousel-slide">
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>Compete and Learn:</strong>  Compete against friends, family, or fellow brainiacs. Engage in friendly competition while expanding your knowledge.</p>
+            </div>
+
+            <div class="carousel-slide">
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>Create and Share: </strong> Have unique quiz ideas? With BrainBoost, you can create and share your quizzes with the community. Challenge others with your own brain teasers.</p>
+            </div>
+
+            <div class="carousel-slide">
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>Achievements and Leaderboards: </strong> Earn achievements and climb the leaderboards as you master quizzes and reach new levels of expertise.</p>
+            </div>
+
+            <div class="carousel-slide">
+                <p style="font-family: 'Arial', sans-serif; color: #666;"><strong>Stay Updated:  </strong>  We regularly add new quizzes and content to keep your brain engaged and entertained.</p>
+            </div>
+            <div style="margin: 0 auto">
+                <button class="carousel-arrows" onclick="prevSlide()">&#9664;</button>
+                <button class="carousel-arrows" onclick="nextSlide()">&#9654;</button>
+            </div>
+        </div>
+        <h4 style="text-align: center; font-family: 'Arial', sans-serif; color: #444;">Join the BrainBoost community today and embark on a journey of discovery, learning, and brain-boosting fun. Whether you're looking to impress your friends with trivia knowledge or simply enjoy challenging quizzes, BrainBoost is your go-to destination for mental stimulation and entertainment.</h4>
+        <br>
+        <h3 style="text-align: center; font-family: 'Arial', sans-serif; color: #333;">Prepare to boost your brainpower, one question at a time, with <span style="color: #f15b2a">BrainBoost!</span></h3>
+    </div>
+
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 style="text-align: center">Contact Us</h2>
+        <br><br>
+        <div class="contact-info">
+            <p><strong>Name:</strong>Assylzhan Kabibulla</p>
+            <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+            <p><strong>Address:</strong> Almaty region, Karasai district.
+                040900, city of Kaskelen, st. Abylai Khan 1/1</p>
+            <p><strong>Email:</strong>  kabibullaasylzhan@gmail.com</p>
+            <p>We typically respond to inquiries within 24 hours.</p>
+        </div>
+        <br><br>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/" target="_blank" class="social-icon instagram"></a>
+            <a href="https://www.facebook.com/" target="_blank" class="social-icon facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank" class="social-icon linkedin"></a>
+        </div>
+        <br>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 BrainBoost. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function showSlide(n) {
+        slides[slideIndex].style.display = 'none';
+        slideIndex = (n + slides.length) % slides.length;
+        slides[slideIndex].style.display = 'block';
+    }
+
+    function prevSlide() {
+        showSlide(slideIndex - 1);
+    }
+
+    function nextSlide() {
+        showSlide(slideIndex + 1);
+    }
+
+    showSlide(slideIndex);
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .drop {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #f15b2a;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #f15b2a">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BrainBoost</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/panel">Profile</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button style="border-color: #2F2822FF" class="btn" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="faq-container">
+  <h1 style="color: #f15b2a;">Frequently Asked Questions (FAQ)</h1>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>How do I start a quiz?
+    <div class="faq-answer">
+      To start a quiz, simply click on the "Start Quiz" button on the homepage. You will be directed to a page where you can select the quiz you want to take.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>Can I retake a quiz?
+    <div class="faq-answer">
+      Yes, you can retake a quiz. After completing a quiz, you will have the option to retake it if you wish to improve your score.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>How are quiz scores calculated?
+    <div class="faq-answer">
+      Quiz scores are calculated based on the number of correct answers you provide. Each correct answer earns you points, and your total score is displayed at the end of the quiz.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>Is there a time limit for quizzes?
+    <div class="faq-answer">
+      Yes, some quizzes may have a time limit. The time limit, if applicable, will be mentioned on the quiz instructions page. Make sure to complete the quiz within the specified time.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>How can I contact support?
+    <div class="faq-answer">
+      If you have any questions or need assistance, you can contact our support team by visiting the "Support" page on our website. We'll be happy to help you.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>Are there different quiz categories available?
+    <div class="faq-answer">
+      Yes, we offer a variety of quiz categories to choose from. You can explore different topics and subjects to find quizzes that interest you.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>Can I create my own quiz?
+    <div class="faq-answer">
+      Currently, we do not offer the ability for users to create their own quizzes. However, we are continuously adding new quizzes to our platform.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>How do I reset my quiz progress?
+    <div class="faq-answer">
+      To reset your quiz progress, you can go to your profile settings and find the option to reset quiz history. Please note that this action is irreversible.
+    </div>
+  </div>
+
+  <div class="faq-question">
+    <div class="drop">&#9660;</div>What happens if I lose my internet connection during a quiz?
+    <div class="faq-answer">
+      If you lose your internet connection during a quiz, your progress will be automatically saved. You can resume the quiz from where you left off when you reconnect.
+    </div>
+  </div>
+</div>
+
+<script>
+  const dropdowns = document.querySelectorAll('.drop');
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('click', () => {
+      const answer = dropdown.nextElementSibling;
+      answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+    });
+  });
+</script>
+</body>
+</html>

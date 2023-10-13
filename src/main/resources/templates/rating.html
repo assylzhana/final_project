@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <style>
+    .square {
+      width: 600px;
+      height: 90px;
+      border: 0px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .square h2 {
+      font-size: 24px;
+      color: #333333;
+      margin: 0;
+    }
+    .table-container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 2px solid #222;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th, .table td {
+      border: 1px solid #2F2822FF;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .table th {
+      background-color: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #f15b2a">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BrainBoost</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/panel">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/support">Support</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button style="border-color: #2F2822FF" class="btn" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+<div class="square">
+  <h2>You are currently ranked #1</h2>
+</div>
+
+<div class="table-container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>John Doe</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Jane Smith</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mary Johnson</td>
+      <td>75</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
