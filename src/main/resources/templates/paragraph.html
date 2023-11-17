@@ -39,21 +39,21 @@
 </nav>
 <br>
 <div class="container" style="width: 800px">
-  <a href="/question" class="card-link">
+  <div th:each="paragraph : ${course.paragraphs}">
+    <a href="/question" style="text-decoration: none">
     <div class="card">
       <div class="card-body">
-        <strong>1 |</strong> This is some text within a card body.
+        <strong th:text="${counter.getCount()} + ' |'"></strong>
+        <span th:utext="${paragraph.content}"></span>
       </div>
     </div>
-  </a>
-  <br>
-  <a href="/question" class="card-link">
-    <div class="card">
-      <div class="card-body">
-        <strong>2 |</strong> This is some text within a card body.
-      </div>
-    </div>
-  </a>
+    </a>
+    <br>
+  </div>
 </div>
+
+
+
+
 </body>
 </html>
