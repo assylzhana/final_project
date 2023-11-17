@@ -38,22 +38,124 @@
   </div>
 </nav>
 <br>
-<div class="container" style="width: 800px">
-  <a href="/question" class="card-link">
-    <div class="card">
-      <div class="card-body">
-        <strong>1 |</strong> This is some text within a card body.
-      </div>
-    </div>
-  </a>
-  <br>
-  <a href="/question" class="card-link">
-    <div class="card">
-      <div class="card-body">
-        <strong>2 |</strong> This is some text within a card body.
-      </div>
-    </div>
-  </a>
+
+<center>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title" th:text="${course.name}"></h5>
+    <p class="card-text" th:text="${course.explanation}"></p>
+    <a href="/dashboard" class="card-link">go to the dashboard</a>
+  </div>
 </div>
+</center>
+<br>
+<center>
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Edit this Course
+</button>
+<br> <br>
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+  Delete this Course
+</button>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+    Add new Paragraph
+  </button>
+</center>
+<br><br>
+<!-- Modal -->
+<form th:action="@{'/dashboard/edit/'+ ${course.id}}"  method="post">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit the course</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Course name</label>
+          <input type="text" name="name" th:value="${course.name}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Explanation</label>
+          <input type="text" th:value="${course.explanation}" name="explanation" class="form-control" id="exampleInputPassword1">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+<!-- Modal -->
+<form th:action="@{'/dashboard/delete/'+ ${course.id}}"  method="post">
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure?</h1>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Modal -->
+<form  th:action="@{'/dashboard/add-paragraph/' + ${course.id}}" method="post">
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addModalLabel">Add new Paragraph</h1>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="paragraphContent" class="form-label">Paragraph Name</label>
+            <input type="hidden" name="courseId" th:value="${course.id}">
+            <input name="paragraphContent" class="form-control" id="paragraphContent">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+<div class="container" style="width: 800px">
+  <div th:each="paragraph : ${course.paragraphs}">
+    <a th:href="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.content}}" style="text-decoration: none">
+    <div class="card">
+      <div class="card-body">
+        <strong th:text="${counter.getCount()} + ' |'"></strong>
+        <span th:utext="${paragraph.content}"></span>
+      </div>
+    </div>
+    </a>
+    <br>
+  </div>
+</div>
+
+
 </body>
 </html>
