@@ -28,23 +28,22 @@
 <br>
 
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title" th:text="${paragraph.content}"></h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary" th:if="${paragraph.courseMaterial}" th:text="${paragraph.courseMaterial.material}"></h6>
-            <a href="/question" class="card-link">Test Yourself</a>
-        </div>
+    <div class="card-body">
+        <h5 class="card-title" th:text="${paragraph.name}"></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary" th:text="${paragraph.content}"></h6>
+        <a th:href="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.name} + '/questions'}" class="card-link">Test Yourself</a>
     </div>
 </div>
 
 
-<!-- Button trigger modal -->
-    <button  type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 75px;margin-top: 10px">
-        Edit this course material
-    </button>
-    <br>
 
-<form th:action="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.content} + '/edit'}"  method="post">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 75px; margin-top: 10px">
+    Edit this course material
+</button>
+<br>
+
+<form th:action="@{'/dashboard/'+${course.name} +'/'+${paragraph.name}+'/edit'}" method="post">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -55,12 +54,14 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Paragraph name</label>
-                        <input type="text" name="paragraphName" th:value="${paragraph.content}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="paragraphName" th:value="${paragraph.name}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Material</label>
-                        <textarea type="text" name="material" class="form-control" id="exampleInputPassword1"><th:block th:if="${paragraph.courseMaterial}" th:text="${paragraph.courseMaterial.getMaterial()}"></th:block></textarea>
+                        <textarea type="text" name="content" class="form-control" id="exampleInputPassword1"><th:block th:text="${paragraph.content}"></th:block></textarea>
                     </div>
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -71,36 +72,29 @@
     </div>
 </form>
 
-
-
-
 <!-- Button trigger modal -->
-    <button  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" style="margin-left: 75px;margin-top: 10px">
-        Delete this material
-    </button>
-    <br>
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" style="margin-left: 75px; margin-top: 10px">
+    Delete this material
+</button>
+<br>
 
-    <!-- Modal -->
-
-    <form th:action="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.content} + '/delete'}" method="post">
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure?</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Delete</button>
-                    </div>
+<!-- Modal -->
+<form th:action="@{'/dashboard/'+${course.name} +'/'+${paragraph.name}+'/delete'}" method="post">
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
                 </div>
             </div>
         </div>
-    </form>
-
-
+    </div>
+</form>
 
 </body>
 </html>

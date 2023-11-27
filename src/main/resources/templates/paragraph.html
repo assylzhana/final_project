@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <style>
-      .card:hover {
-        border-color: #f15b2a;
-      }
-      a.card-link {
-        text-decoration: none;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <style>
+    .card:hover {
+      border-color: #f15b2a;
+    }
+    a.card-link {
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: #f15b2a">
@@ -40,23 +40,23 @@
 <br>
 
 <center>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title" th:text="${course.name}"></h5>
-    <p class="card-text" th:text="${course.explanation}"></p>
-    <a href="/dashboard" class="card-link">go to the dashboard</a>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title" th:text="${course.name}"></h5>
+      <p class="card-text" th:text="${course.explanation}"></p>
+      <a href="/dashboard" class="card-link">go to the dashboard</a>
+    </div>
   </div>
-</div>
 </center>
 <br>
 <center>
-<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Edit this Course
-</button>
-<br> <br>
-<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-  Delete this Course
-</button>
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Edit this Course
+  </button>
+  <br> <br>
+  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+    Delete this Course
+  </button>
 
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
     Add new Paragraph
@@ -65,31 +65,31 @@
 <br><br>
 <!-- Modal -->
 <form th:action="@{'/dashboard/edit/'+ ${course.id}}"  method="post">
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit the course</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Course name</label>
-          <input type="text" name="name" th:value="${course.name}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit the course</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Explanation</label>
-          <input type="text" th:value="${course.explanation}" name="explanation" class="form-control" id="exampleInputPassword1">
-        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Course name</label>
+            <input type="text" name="name" th:value="${course.name}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Explanation</label>
+            <input type="text" th:value="${course.explanation}" name="explanation" class="form-control" id="exampleInputPassword1">
+          </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </form>
 
 
@@ -110,9 +110,8 @@
     </div>
   </div>
 </form>
-
 <!-- Modal -->
-<form  th:action="@{'/dashboard/add-paragraph/' + ${course.id}}" method="post">
+<form th:action="@{'/dashboard/add-paragraph/' + ${course.id}}" method="post">
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -122,9 +121,14 @@
 
         <div class="modal-body">
           <div class="mb-3">
-            <label for="paragraphContent" class="form-label">Paragraph Name</label>
+            <label for="paragraphName" class="form-label">Paragraph Name</label>
             <input type="hidden" name="courseId" th:value="${course.id}">
-            <input name="paragraphContent" class="form-control" id="paragraphContent">
+            <input name="paragraphName" class="form-control" id="paragraphName">
+          </div>
+
+          <div class="mb-3">
+            <label for="paragraphContent" class="form-label">Paragraph Content</label>
+            <textarea name="paragraphContent" class="form-control" id="paragraphContent"></textarea>
           </div>
         </div>
 
@@ -141,16 +145,15 @@
 
 
 
-
 <div class="container" style="width: 800px">
   <div th:each="paragraph : ${course.paragraphs}">
-    <a th:href="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.content}}" style="text-decoration: none">
-    <div class="card">
-      <div class="card-body">
-        <strong th:text="${counter.getCount()} + ' |'"></strong>
-        <span th:utext="${paragraph.content}"></span>
+    <a th:href="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.name}}" style="text-decoration: none">
+      <div class="card">
+        <div class="card-body">
+          <strong th:text="${counter.getCount()} + ' |'"></strong>
+          <span th:utext="${paragraph.name}"></span>
+        </div>
       </div>
-    </div>
     </a>
     <br>
   </div>

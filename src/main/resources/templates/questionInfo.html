@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h3 class="fst-italic">Questions for Course: <span th:text="${course.name}"></span><br>Paragraph: <span th:text="${paragraph.name}"></span></h3>
+
+
+<ul >
+    <li>
+        <a th:text="${question.questionText}"></a>
+        <p>Options:</p>
+        <ul>
+            <li th:text="${question.answer.option1}"></li>
+            <li th:text="${question.answer.option2}"></li>
+            <li th:text="${question.answer.option3}"></li>
+            <li th:text="${question.answer.option4}"></li>
+            <p th:text="${question.answer.correctAnswerIndex}"></p>
+
+        </ul>
+    </li>
+
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+        Edit
+    </button>
+
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+        Delete
+    </button>
+
+</ul>
+
+
+<form th:action="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.name} + '/questions/edit/'+${question.id}}" method="post">
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Edit question</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="questionText" class="form-label">Question Text</label>
+                        <textarea class="form-control" id="questionText" name="questionText"><th:block th:text=${question.questionText}></th:block></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="option1" class="form-label">Option 1</label>
+                        <input type="text" class="form-control" th:value="${question.answer.option1}" id="option1" name="option1" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="option2" class="form-label">Option 2</label>
+                        <input type="text" th:value="${question.answer.option2}" class="form-control" id="option2" name="option2" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="option3" class="form-label">Option 3</label>
+                        <input type="text" th:value="${question.answer.option3}" class="form-control" id="option3" name="option3" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="option4" class="form-label">Option 4</label>
+                        <input type="text" class="form-control" th:value="${question.answer.option4}" id="option4" name="option4" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="correctOptionIndex" class="form-label">Correct Option Index</label>
+                        <input type="number" class="form-control" th:value="${question.answer.correctAnswerIndex}" id="correctOptionIndex" name="correctOptionIndex">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<form th:action="@{'/dashboard/' + ${course.name} + '/' + ${paragraph.name} + '/questions/delete/'+${question.id}}" method="post">
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Delete question</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>

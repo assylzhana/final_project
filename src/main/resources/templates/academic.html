@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <style>
+        .brown-circle {
+
+            width: 150px;
+            height: 150px;
+            background-color: whitesmoke;
+            border-radius: 50%;
+        }
+        body {
+            overflow-x: hidden;
+        }
+        .main{
+            padding: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 20px;
+        }
+        .topbar{
+            background-color: #f15b2a ;
+            overflow: hidden;
+            width: 100%;
+        }
+        .topbar a{
+            float: right;
+            color: whitesmoke;
+            text-align: center;
+            padding: 20px 26px;
+            text-decoration: none;
+            font-size: 26px;
+        }
+        .sidebar{
+            background-color: #333;
+            color: white;
+            height: 100%;
+        }
+        .sidebar a{
+            margin-left: 10px;
+            display: block ;
+            color: white;
+            padding-bottom: 10px;
+            font-size: 30px;
+            text-decoration: none;
+        }
+        .card{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .content{
+            background-color: whitesmoke;
+            width: 100%;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg" style="background-color: #f15b2a">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BrainBoost</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="${'/academic-news'}">Academic News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/support">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ <!-- Button trigger modal -->
+ <button style="margin-top: 40px;margin-left: 75px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     add news
+ </button><br>
+
+ <div class="container">
+ <div th:each="newsItem : ${news}" class="card">
+     <div class="card-header">
+         <p th:text="${newsItem.title}"></p>
+     </div>
+     <div class="card-body">
+         <p class="card-text" th:text="${newsItem.inShort}"></p>
+         <a href="#" class="btn btn-primary">Go somewhere</a>
+     </div>
+ </div>
+     <br>
+ </div>
+
+
+
+ <form th:action="@{/academic-news/add}" method="post">
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body">
+
+                     <div class="mb-3">
+                         <label for="exampleInputEmail1" class="form-label">Title</label>
+                         <input type="text" class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp">
+                     </div>
+
+                     <div class="mb-3">
+                         <label for="exampleInputPassword1" class="form-label">In Short</label>
+                         <textarea type="password" class="form-control" name="inShort" ></textarea>
+                     </div>
+
+                     <div class="mb-3">
+                         <label for="exampleInputPassword1" class="form-label">Text</label>
+                         <textarea type="password" class="form-control" name="text" id="exampleInputPassword1"></textarea>
+                     </div>
+
+
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     <button type="submit" class="btn btn-primary">Add</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </form>
+
+
+</body>
+</html>

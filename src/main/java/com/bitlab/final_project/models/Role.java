@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
 
-@Controller
+
 @Entity
 @Table(name = "roles")
 @Getter
@@ -14,5 +14,6 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "role_name", nullable = false)
     private String name;
 }

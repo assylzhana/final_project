@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface ParagraphRepository extends JpaRepository<Paragraph,Long> {
 
     Paragraph findByCourseAndContent(Course course, String paragraphName);
+
+    Paragraph findByCourseAndName(Course course, String paragraphName);
 }

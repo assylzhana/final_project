@@ -7,7 +7,6 @@ import lombok.ToString;
 import org.springframework.stereotype.Controller;
 import java.util.Set;
 
-@Controller
 @Entity
 @Table(name = "users")
 @Getter
@@ -17,13 +16,22 @@ public class User  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String fullName;
+
+    @Column(name = "user_email", unique = true)
     private String email;
+
+    @Column(name = "user_phone")
     private String phone;
     private String address;
     private String password;
+    private Long score;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private StudentGroup group;
 
 }

@@ -15,10 +15,10 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "course_name", nullable = false, length = 100)
+    @Column(name = "course_name", nullable = false,unique = true)
     private String name;
 
-    @Column(name = "course_explanation", nullable = false, length = 255)
+    @Column(name = "course_explanation", nullable = false, length = 1000)
     private String explanation;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)

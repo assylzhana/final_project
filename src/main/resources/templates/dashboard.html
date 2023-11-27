@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <style>
         .fixed-card {
-            height: 220px;
+            height: 270px;
             width: 350px;
             margin: 0 20px 20px 0;
         }
@@ -26,6 +26,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/panel">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="${'/academic-news'}">Academic News</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/support">Support</a>
@@ -79,11 +82,11 @@
             <div class="card text-center fixed-card">
                 <div class="card-header" style="color: #f15b2a" th:text="${counter.getCount()}">
                 </div>
-                <div class="card-body">
+                <div class="card-body" >
                     <h5 th:text="${course.name}" class="card-title"></h5>
                     <p class="card-text" th:text="${course.explanation}"></p>
                 </div>
-                <div class="card-footer text-muted"><a th:value="course.name" th:href="${'/dashboard/'+course.name}" class="btn btn-success btn-sm">Start</a>
+                <div style="height: 60px" class="card-footer text-muted"><a th:value="course.name" th:href="${'/dashboard/'+course.name}" class="btn btn-success btn-sm">Start</a>
 
                 </div>
             </div>

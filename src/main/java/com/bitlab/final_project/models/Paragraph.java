@@ -13,13 +13,14 @@ public class Paragraph {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "content", nullable = false, length = 1000)
+    @Column(name = "paragraph_name", nullable = false, length = 100)
+    private String name;
+
+    @Column(name = "paragraph_content", nullable = false, length = 1000000)
     private String content;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    @OneToOne
-    private CourseMaterial courseMaterial;
 }
